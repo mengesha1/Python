@@ -1,0 +1,869 @@
+# program Exercise practice:
+choice = str(input("Enter your choice from:start,stop,quit and asd >"))
+
+if "start" == choice.lower():
+    print("car Started .... Ready to go! ")
+
+elif "stop" == choice.lower():
+    print("Car stopped")
+
+elif "asd" == choice.lower():
+
+    print("I don't understand")
+else:
+    print("quit")
+/////////////////////
+//while loop Example
+command = ""
+started = False
+while True:
+    command = input("> ").lower()
+    if command == "start":
+        if started:
+            print("car is already started")
+        else:
+            started = True
+            print("car Started")
+    elif command == "stop":
+        if not started:
+            print("Car is already stopped")
+        else:
+            started = False
+            print("Car Stopped")
+    elif command == "help":
+        print("""
+    start - to start the car
+    stop - to stop the car
+    quit - to quit the program
+               """)
+    elif command == "quit":
+        break
+else:
+    print("I dont understand")
+
+
+-----------
+numbers = [5, 2, 5, 2, 2]
+
+# crate pattern ****,**,...
+for x_count in numbers:
+    output = ' '
+    for count in range(x_count):
+        output += 'X'
+    print(output)
+
+# Find the largest number:
+
+numbers = [11, 2, 3, 140, 100, 15]
+max = numbers[0]    # assume first list max
+for number in numbers:
+    if number > max:
+        max = number
+print(max)
+# Find the smallest number:
+numbers = [11, 2, 3, 140, 100, 15]
+small = numbers[0]    # assume first list max
+for number in numbers:
+    if number < small:
+        small = number
+print(small)
+
+# matrix:
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+for row in matrix:
+    for item in row:
+        print(item)
+
+# remove duplicate form the list
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 4, 2]
+uniques = []
+for number in numbers:
+    if number not in uniques:
+        uniques.append(number)
+print(uniques)
+# dictionary Exercise
+phone = input("phone number:")
+digits_mapping = {
+
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four"
+}
+
+output = ""
+for ch in phone:
+    output += digits_mapping.get(ch, "! ") + " "
+print(output)
+
+# Dictionary exercise
+message = input(">")
+words = message.split(' ')
+emojis = {
+    ":)": "😃",
+    ":(": "😌"
+}
+
+output = ""
+for word in words:
+    output += emojis.get(word, word) + " "
+print(output)
+
+# Function Exercise
+def greet_user():
+    print("Hi there !")
+    print("Welcome aboard")
+
+
+print("Start")
+greet_user()
+print("Finish")
+
+# Function exercise
+def greet_user(first_name, last_name):
+
+    print(f"Hi, {first_name} {last_name} !")
+    print("Welcome aboard")
+
+
+print("Start")
+greet_user("John", "Smith")
+greet_user("Mary", "Kebede")
+print("Finish")
+
+# E-mail sending using python
+from email.message import EmailMessage
+from app import password
+import ssl
+import smtplib
+
+email_sender = 'mengtseg@gmail.com'
+email_password = password
+
+email_receiver = '' # set email receiver from email-temp.org sample email
+
+subject = "dont for get to subscribe"
+body = """
+when you watch a video, please hit subscribe  
+"""
+
+em = EmailMessage()
+em['From'] = email_sender
+em['To'] = email_receiver
+em['Subject'] = subject
+em.set_content(body)
+
+context = ssl.create_default_context()
+
+with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+    smtp.login(email_sender.email_password)
+    smtp.sendmail(email_sender, email_receiver, em.as_string())
+
+
+# function for emoji converter
+def emoji_converter(message):
+
+    words = message.split(' ')
+    emojis = {
+        ":)": "😃",
+        ":(": "😌"
+    }
+    output = ""
+    for word in words:
+        output += emojis.get(word, word) + " "
+    return output
+
+
+message = input(">")
+# result = emoji_converter(message)
+print(emoji_converter(message))
+
+
+# function for word replacement
+
+def replace_word():
+
+    str = "hi guys I am tomy, and hi hi hi hi hi"
+    word_to_replace = input("Enter the word to replace")
+    word_replacement = input("word to be replacement : ")
+    print(str.replace(word_to_replace, word_replacement))
+
+
+replace_word()
+
+# function needed to calculate  basics for add,sub,sub,mult and division
+
+def add(a, b):
+    answer = a + b
+    print(str(a) + "+" + str(b) + "=" + str(answer) + "\n")
+
+
+def sub(a, b):
+    answer = a - b
+    print(str(a) + "-" + str(b) + "=" + str(answer) + "\n")
+
+
+def mult(a, b):
+    answer = a * b
+    print(str(a) + "*" + str(b) + "=" + str(answer) + "\n")
+
+
+def div(a, b):
+    answer = a // b
+    print(str(a) + "/" + str(b) + "=" + str(answer) + "\n")
+
+
+while True:
+    print("A:Addition")
+    print("B:Subtraction")
+    print("C:Multiplication")
+    print("D:Division")
+    print("E:Exit")
+    choice = input("Enter your choice: ")
+
+    if choice == 'a' or choice == 'A':
+        print("Addition")
+        a = int(input("Enter the first value:"))
+        b = int(input("Enter the second value:"))
+        add(a, b)
+
+    elif choice == 'b' or choice == 'B':
+        print("Subtraction")
+        a = int(input("Enter the first value:"))
+        b = int(input("Enter the second value:"))
+        sub(a, b)
+    elif choice == 'c' or choice == 'C':
+        print("Multiplication")
+        a = int(input("Enter the first value:"))
+        b = int(input("Enter the second value:"))
+        mult(a, b)
+    elif choice == 'd' or choice == 'D':
+        print("Division")
+        a = int(input("Enter the first value:"))
+        b = int(input("Enter the second value:"))
+        div(a, b)
+    elif choice == 'e' or choice == 'E':
+        print("The program ends !")
+        quit()
+
+
+# function needed to calculate for add,sub,sub,mult and division(some how refactor the function)
+#  the function is refactored:
+def add(a, b):
+    answer = a + b
+    print(str(a) + "+" + str(b) + "=" + str(answer) + "\n")
+
+
+def sub(a, b):
+    answer = a - b
+    print(str(a) + "-" + str(b) + "=" + str(answer) + "\n")
+
+
+def mult(a, b):
+    answer = a * b
+    print(str(a) + "*" + str(b) + "=" + str(answer) + "\n")
+
+
+def div(a, b):
+    answer = a // b
+    print(str(a) + "/" + str(b) + "=" + str(answer) + "\n")
+
+
+choice = ""
+while True:
+    print("A:Addition")
+    print("B:Subtraction")
+    print("C:Multiplication")
+    print("D:Division")
+    print("E:Exit")
+    choice = input("Enter your choice: ")  # choice has to implement better without engaging  values
+
+    a = int(input("Enter the first value:"))
+    b = int(input("Enter the second value:"))
+
+    if choice == 'a' or choice == 'A':
+        print("Addition")
+        add(a, b)
+
+    elif choice == 'b' or choice == 'B':
+        print("Subtraction")
+        sub(a, b)
+    elif choice == 'c' or choice == 'C':
+        print("Multiplication")
+        mult(a, b)
+    elif choice == 'd' or choice == 'D':
+        print("Division")
+        div(a, b)
+    elif choice == 'e' or choice == 'E':
+        print("The program ends !")
+        quit()
+
+
+# Exceptions handling :
+
+try:
+    age = int(input('Age:'))
+    income = 20000
+    risk = income / age
+    print(age)
+except ZeroDivisionError:
+    print('Age cannot be 0.')
+except ValueError:
+    print('Invalid value')
+
+
+    # E-mail slicer :
+
+    def main():
+        print("Welcome to the e-mail slicer")
+        print("")
+        try:
+            email_input = input("Enter your email address: ")
+            (username, domain) = email_input.split("@")
+            (domain, extension) = domain.split(".")
+
+            print("User name :", username)
+            print("Domain: ", domain)
+            print("Extension :", extension)
+
+        except ValueError:
+            print("Invalid value try again")
+
+
+    while True:
+        main()
+
+
+
+# Binary search
+# a function that takes a list and target parameter
+# multiple variables:middle.start,end,steps
+# recursion or while loop
+# increase the steps each time a split is done
+# condition to track targete position
+
+def binary_search(list, element):
+    middle = 0
+    start = 0
+    end = len(list)
+    steps = 0
+    while start <= end:
+        print("step", steps, ":", str(list[start:end+1]))
+
+        steps = steps+1
+        middle = (start + end) // 2
+        if element == list[middle]:
+            return middle
+        if element < list[middle]:
+            end = middle - 1
+        else:
+            start = middle + 1
+    return -1
+
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]  # to check the program the lists
+target = 10      # target
+binary_search(my_list, target) # calling the function
+
+
+# Quiz program
+# a dictionary that stores questions and answers
+# have a variable that tracks the score of the player
+# loop through the dictionary using the key value pairs
+# display each question to the user and allow them to answer
+# tell them if they are right or wrong
+# show the final result when the quiz is completed
+
+quiz = {
+    "question1": {
+        "question": "what is the capital of France?",
+        "answer": "paris"
+    },
+    "question2": {
+        "question": "what is the capital of Germany?",
+        "answer": "Berlin"
+    },
+    "question3": {
+        "question": "what is the capital of Italy?",
+        "answer": "Rome"
+    },
+    "question4": {
+        "question": "what is the capital of Spain?",
+        "answer": "Madrid"
+    },
+    "question5": {
+        "question": "what is the capital of Portugal?",
+        "answer": "Lisbon"
+    },
+    "question6": {
+        "question": "what is the capital of Ethiopia?",
+        "answer": "Addis ababa"
+    },
+    "question7": {
+        "question": "what is the capital of Eritrea?",
+        "answer": "Asmara"
+    }
+
+}
+
+score = 0
+
+for key, value in quiz.items():
+    print(value['question'])
+    answer = input("Answer?")
+
+    if answer.lower() == value['answer'].lower():
+        print('correct')
+        score = score + 1
+        print("Your score is: " + str(score))
+        print("")
+        print("")
+    else:
+        print("wrong!")
+        print('The answer is :' + value['answer'])
+        print("your score is: " + str(score))
+        print("")
+        print("")
+print("you got" + str(score) + "out of 7 questions correctly")
+print("your percentage is " + str(int(score/7*100)) + "%")
+
+
+# QR  Code Generator
+# install all the library needed (pip install  qrcode image )
+# create a function that collects a text and converts it to a QRcode
+# save the QRcode as an image
+# run the function
+
+import qrcode
+
+ def generate_qrcode(text):
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(text)
+    qr.make(fit=True)
+
+
+    img = qr.make_image(fill_color="black", black_color="white")
+    img.save("qrimg.png")  # we can  change to qrimg001.png
+
+
+generate_qrcode("https://www.codewiththomi.com")
+
+
+# url = input("Enter your url: ")  //second option
+# generate_qrcode(url)  //second option
+
+
+# Interest rate Monthly payment calculator
+
+# collect the necessary inputs: principal,apr,years
+# calculate the monthly payment
+# show the user
+def main():
+    print("This is a monthly loan Calculator")
+    print(" ")
+
+    principal = float(input("Enter the loan amount"))
+    apr = float(input("Enter the annual interest rate: "))
+    years = int(input("Enter amount of years"))
+
+
+    monthly_interest_rate = apr / 1200
+    amount_of_months = years * 12
+    monthly_payment = principal * monthly_interest_rate/(1-(1 + monthly_interest_rate)**(-amount_of_months))
+
+    print("The monthly payment for this loan is:%.2f " % monthly_payment)
+
+
+main()
+
+
+# Random password generator
+
+# Ask user if they want to generate a password or not
+# If yes,ask for password length
+# print password
+# if initial response is no,exit program
+
+import string
+import random
+
+characters = list(string.ascii_letters + string.digits + "!@#$%&*()")
+
+def generate_password():
+    password_length = int(input("how long would you like your password to be: ?"))
+
+    random.shuffle(characters)
+
+    password = []
+
+    for x in range(password_length):
+        password.append(random.choice(characters))
+
+    random.shuffle(password)
+
+    password = "".join(password)
+
+    print(password)
+
+    option = input("Do you want to generate a password?(yes/No): ")
+
+    if option == "yes":
+        generate_password()
+    elif option == "No":
+        print("Program ended")
+        quit()
+    else:
+        print("Invalid input,please input Yes or No")
+        quit()
+
+
+generate_password()
+
+
+# Dice Rolling smulator
+
+# import random
+# define a function to drill the dice
+# create a dictionary that will be the drawings
+# create a dictionary that will have the value of the dice
+
+
+
+def roll_dice():
+    dice_drawing = {
+        1: (
+            "┌─────────┐",
+            "│         │",
+            "│    ●    │",
+            "│         │",
+            "└─────────┘",
+        ),
+        2: (
+            "┌─────────┐",
+            "│  ●      │",
+            "│         │",
+            "│      ●  │",
+            "└─────────┘",
+        ),
+        3: (
+            "┌─────────┐",
+            "│  ●      │",
+            "│    ●    │",
+            "│      ●  │",
+            "└─────────┘",
+        ),
+        4: (
+            "┌─────────┐",
+            "│  ●   ●  │",
+            "│         │",
+            "│  ●   ●  │",
+            "└─────────┘",
+        ),
+        5: (
+            "┌─────────┐",
+            "│  ●   ●  │",
+            "│    ●    │",
+            "│  ●   ●  │",
+            "└─────────┘",
+        ),
+        6: (
+            "┌─────────┐",
+            "│  ●   ●  │",
+            "│  ●   ●  │",
+            "│  ●   ●  │",
+            "└─────────┘",
+        ),
+    }
+    roll = input("Roll the dice? (yes/no): ")
+
+    while roll.lower() == "Yes".lower():
+        dice1 = random.randint(1, 6)
+        dice2 = random.randint(1, 6)
+
+        print("dice rolled: {} and {}".format(dice1, dice2))
+        print("\n".join(dice_drawing[dice1]))
+        print("\n".join(dice_drawing[dice2]))
+
+        roll = input("roll again? yes/No: ")
+
+    # site connectivity Checker ********* to be visited agan
+
+    # import urllib
+    # use urllib.request to get the data from the url
+    # write a function that takes a url
+    # returns a response
+
+
+import urllib.request as urllib, urllib.parse, urllib.error
+
+
+def main(url):
+    print("Checking connectivity ")
+    url = '...'
+    response = urllib.urlopen(url)
+    print("connected to", url, "succesfully")
+    print("The response code was:", response.getcode())
+
+
+print("This is the sie connectivity checker program")
+input_url = input("Input the url of the site you want to check: ")
+
+main(input_url)
+
+# Madlibs program
+
+# string concatenation (aka how to put string together
+# suppose we want to create a string that says"subscribe to ______"
+# youtuber = "Mengesha"  # some string variable
+
+# a few way to do this
+# youtuber = "Mengesha "
+# print("subscribe to " + youtuber)
+# print ("subscribe to {}".format(youtuber))
+# print(f"subscribe to {youtuber}")
+
+adj = input("Adjective: ")
+verb1 = input("verb: ")
+verb2 = input("verb: ")
+famous_person = input("Famous person: ")
+
+madlib = f" Computer programing is so {adj}! It makes me so excited all the time becuase \
+I love to {verb1}. Stay hydrated and {verb2} like you are {famous_person}!"
+
+print(madlib)
+
+# Guess computer number  program
+
+# Guess computer number  program(user guess)
+
+# import random
+
+import random
+
+def guess(x):
+    random_number = random.randint(1, x)
+    guess = 0
+
+    while guess != random_number:
+        guess = int(input(f"Guess a number between 1 and {x}: "))
+        if guess < random_number:
+            print("sorry, guess again. Too low. ")
+        elif guess > random_number:
+            print("Sorry ,guess again.Too high ")
+    print(f"yay, congrats.You have guessed the number(random_number)correctly")
+
+
+# guess(10)
+# Computer guess
+
+def computer_guess(x):
+    low = 1
+    high = x
+    feedback = ""
+
+    while feedback != "c":
+
+        if low != high:
+            guess = random.randint(low, high)
+        else:
+            guess = low  # could also be high b/c high =low
+
+        feedback = input(f"Is {guess} too high(H),too low (L),or correctly")
+        if feedback == "h":
+            high = guess - 1
+        elif feedback == "l":
+            low = guess + 1
+    print(f"Yay! The computer your number , {guess} correctly")
+
+computer_guess(10)
+
+
+# currency convertor
+
+def main():
+    print("This program converts US dollars to Pounds Sterling")
+    print()
+
+    dollars = eval(input("Enter amount in dollars: "))
+    pounds = convert_to_pounds(dollars)
+    print("That is", pounds, "pounds.")
+
+
+convert_to_pounds = lambda dollars: dollars * 0.82
+
+main()
+
+# Calendar leap year checker
+
+def is_leap_year(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                print("Leap Year")
+            else:
+                print("Not a leap Year")
+        else:
+            print("Leap Year")
+    else:
+        print("Not a leap Year")
+
+
+is_leap_year(2021)  # we can also ask form user instead of passing the argument
+
+# Word dictionary
+# have a python dictionary that has a key/value pair that represents a word and its definition
+# collect the input from the user ,input the word
+# check if the word is in the dictionary
+# print the definition
+
+def main():
+    word_dictionary = {
+        "hi": "a way of greeting",
+        "eyes": "an organ for seeing",
+        "earth": "a planet in space"
+    }
+
+    while True:
+        word = input("Enter a word : ")
+        if word == "":
+            break
+        if word in word_dictionary:
+            print(word, ":", word_dictionary[word])
+
+
+main()
+
+
+# word dictionary (like pocket dictionary)
+# provide a word and it will give you its meaning
+
+from PyDictionary import PyDictionary
+dictionary = PyDictionary()
+
+while True:
+    word = input("Enter your word: ")
+    if word == "":
+        break
+    print(dictionary.meaning(word))
+
+# word dictionary (like pocket dictionary)
+# provide a word like "play" and it will give you its meaning
+
+from PyDictionary import PyDictionary
+
+dictionary = PyDictionary("play", "indentation", "head")  # play is the word provided
+
+# print(dictionary.printMeanings())
+print(dictionary.getMeanings())  # python dictionary format
+
+# Rock ,paper, Scissors game
+# import random
+
+import random
+
+exit = False
+user_points = 0
+computer_points = 0
+
+while exit == False:
+    options = ["rock", "paper", "scissors"]
+    user_input = input("Choose rock, paper, scissors or exit: ")
+    computer_input = random.choice(options)
+
+    if user_input == "exit":
+        print("Game ended")
+        print("You won a total score of "+str(user_points)+" and the computer total score is " +str(computer_points))
+        exit = True
+
+    if user_input == "rock":
+        if computer_input == "rock":
+            print("Your input is rock")
+            print("computer input is rock")
+            print("It is a tie!")
+        elif computer_input == "paper":
+            print("Your input is rock")
+            print("computer input is paper")
+            print(" computer wins")
+            computer_points += 1
+        elif computer_input == "scissors":
+            print("Your input is rock")
+            print("computer input is scissors")
+            print("you win")
+            user_points += 1
+
+    elif user_input == "paper":
+        if computer_input == "rock":
+            print("Your input is paper")
+            print("computer input is rock")
+            print("you win!")
+            user_points += 1
+        elif computer_input == "paper":
+            print("Your input is paper")
+            print("computer input is paper")
+            print("it's a tie!")
+        elif computer_input == "scissors":
+            print("Your input is paper")
+            print("computer input is scissors")
+            print("computer wins")
+            computer_points += 1
+
+    elif user_input == "scissors":
+        if computer_input == "rock":
+            print("Your input is scissors")
+            print("computer input is rock")
+            print("computer win!")
+            computer_points += 1
+        elif computer_input == "paper":
+            print("Your input is scissors")
+            print("computer input is paper")
+            print("you win")
+            user_points += 1
+        elif computer_input == "scissors":
+            print("Your input is scissors")
+            print("computer input is scissors")
+            print("its a tie")
+
+    elif user_input != " rock" or user_input != "paper" or user_input != "scissors":
+        print("Invalid Input")
+
+
+# smallest and largest number
+
+largest = None
+smallest = None
+
+while True:
+    num = input("Enter a number: ")
+    if num == "done":
+        break
+    try:
+        number = float(num)
+    except:
+        print("Invalid Input")
+        continue
+    if smallest is None:
+        smallest = number
+        largest = number
+    if number > largest:
+        largest = number
+    elif number < smallest:
+        smallest = number
+
+
+def done(largest, smallest):
+    print(f"Largest number is : {largest}")
+    print(f"Smallest number is : {smallest}")
+
+done(largest, smallest)
+
